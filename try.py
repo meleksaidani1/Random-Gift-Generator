@@ -44,6 +44,9 @@ if selected_service in services:
     print(f"Codes for {selected_service} generated successfully!")
 else:
     print("Invalid service selection!")
+    print("Available services:")
+    for service in services:
+        print(service)
 
 print("Thanks For Using My Script")
 time.sleep(5)
