@@ -6,15 +6,19 @@ def generate_codes(service, number, file):
     code_length = 16
     separator = '-'
 
-    if service == "Visa":
-        # Visa specific setup
-        # ...
-    elif service == "iTunes":
-        # iTunes specific setup
-        # ...
-
     with open(file, 'a') as out:
         for _ in range(number):
+            if service == "Visa":
+                # Visa specific setup
+                # ...
+                pass
+            elif service == "iTunes":
+                # iTunes specific setup
+                # ...
+                pass
+            # Add more services with their specific setups here using elif
+
+            # Generate code for the current service
             code = separator.join(''.join(random.choice(gentype) for _ in range(code_length)) for _ in range(4)) + '\n'
             out.write(code)
 
