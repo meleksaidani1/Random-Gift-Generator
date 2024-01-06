@@ -58,7 +58,7 @@ print(f"Selected service: {services[selected_service - 1]}")
 
 if selected_service - 1 in range(len(services)):
     generate_codes(selected_service - 1, total, file_name)
-    print(f"Codes for {services[selected_service - 1]} generated successfully!")
+    print(f"Codes for {services[selected_service - 1]} generated successfully in {file_name}!")
 else:
     print("Invalid service selection!")
 
