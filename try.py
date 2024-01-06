@@ -1,26 +1,17 @@
 import random
 import time
 
-def generate_codes(service, number, file):
+def generate_code(code_length):
     gentype = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-    code_length = 16
     separator = '-'
+    return separator.join(''.join(random.choice(gentype) for _ in range(code_length)) for _ in range(4)) + '\n'
 
+def generate_codes(service, number, file):
+    code_length = 16
     with open(file, 'a') as out:
         for _ in range(number):
-            if service == 9:  # Assuming Visa's number is 9
-                # Visa specific setup
-                code = separator.join(''.join(random.choice(gentype) for _ in range(code_length)) for _ in range(4)) + '\n'
-                out.write(code)
-                # ...
-
-            elif service == 8:  # Assuming iTunes's number is 8
-                # iTunes specific setup
-                code = separator.join(''.join(random.choice(gentype) for _ in range(code_length)) for _ in range(4)) + '\n'
-                out.write(code)
-                # ...
-
-            # Add more services with their specific setups here using elif
+            code = generate_code(code_length)
+            out.write(code)
 
 print("Hello To Multiple Gift Card Generator")
 print("This Script Is Just for educational purpose; use it at your own risk")
